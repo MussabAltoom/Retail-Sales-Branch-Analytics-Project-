@@ -16,8 +16,8 @@ Build a relational database for a multi-branch retail company.
 - Analyze customer spending using JOINs and ranking.
 -
 # 6.Database schema and table descriptions.
+| branches | Branch names and regions |
 | :-- | :-- |
-branches | Branch names and regions |
 | products | Products and categories |
 | customers | Customer details |
 | sales | Sales transactions linked to branch, product, and customer
