@@ -7,6 +7,7 @@
 | Adil Salah | 202510277 |
 | Osman Musa | 202511534 |
 | Anas Yaseir | 202512831 |
+|MOHAMED AHMED|202511816|
 
 # 3.Business Background
 A major retail company operates multiple branches across different regions, employing staff and serving diverse customers with various product categories (Electronics, Accessories, Furniture). Management requires deep analytical insights to monitor regional performance and customer trends.
@@ -170,3 +171,8 @@ Executing Window Functions:
 Run scripts 06_ranking_functions.sql through 09_distribution_functions.sql to view the advanced analytical results.
 
 Ensure your SQL environment supports standard ANSI SQL window functions before execution.
+
+#13. Academic Integrity Statement
+I hereby solemnly declare that this database project and its accompanying technical report represent my own original, independent work. Every aspect of this submission—including the conceptual design, Entity-Relationship (ER) modeling, relational database schema, data normalization, SQL script implementation, JOIN operations, window functions, and analytical findings—has been personally developed, executed, and verified by me in strict accordance with the academic integrity and ethical standards of the university.
+I affirm that I have neither given nor received any unauthorized assistance during the preparation of this project. All external literature, technical documentation, datasets, and reference materials consulted throughout the research and development process have been fully acknowledged and appropriately cited in the References section of this report.
+Furthermore, I confirm that no part of this work has been plagiarized, copied from any other student or uncredited source, or submitted previously for academic credit in this or any other course. I fully understand the consequences of academic dishonesty and take complete responsibility for the authenticity, accuracy, and integrity of the work presented herein.
