@@ -44,7 +44,7 @@ INNER JOIN products p ON s.product_id = p.product_id;
 Business Interpretation: This query retrieves all sales transactions alongside the specific names of the products sold. It helps the business understand exactly which items are moving through the checkout process, excluding any products that have never been sold.
 ```
 ** 2. LEFT JOIN
-```
+``` sql
 -- Identify records in the left table that have no matching records in the right table
 SELECT c.customer_id, c.first_name, c.last_name, s.sale_id
 FROM customers c
@@ -53,7 +53,7 @@ WHERE s.sale_id IS NULL;
 Business Interpretation: This query identifies registered customers who have not made any purchases yet. The marketing team can use this specific list to target these inactive customers with personalized first-time discount offers.
 ```
 ** 3. RIGHT JOIN
-```
+``` sql
 -- Identify records in the right table that have no matching records in the left table
 SELECT s.sale_id, s.total_amount, e.first_name AS employee_name
 FROM sales s
@@ -62,7 +62,7 @@ WHERE s.sale_id IS NULL;
 Business Interpretation: By using a right join, we isolate employees who have not processed any sales transactions. This allows management to quickly identify staff members who might be in non-sales roles, or new hires who require additional sales system training.
 ```
 ** 4. FULL OUTER JOIN
-```
+``` sql
 -- Display matching and unmatched records from both tables
 SELECT b.branch_name, s.sale_id, s.total_amount
 FROM branches b
@@ -70,7 +70,7 @@ FULL OUTER JOIN sales s ON b.branch_id = s.branch_id;
 Business Interpretation: This query returns all branches and all sales records, combining them where there is a match while keeping unmatched rows. It is essential for auditing purposes to ensure every recorded sale is correctly allocated, and it highlights any newly opened branches that lack sales data.
 ```
 5. SELF JOIN
-```
+``` sql
 -- Compare records within the same table
 SELECT e1.first_name AS employee_name, e2.first_name AS manager_name
 FROM employees e1
@@ -81,7 +81,7 @@ Business Interpretation: This query pairs retail employees directly with their r
 ```
 ```
 ** A. Ranking Functions
-```
+``` sql
 -- Rank products according to sales performance
 SELECT p.product_name, SUM(s.total_amount) as total_revenue,
 RANK() OVER (ORDER BY SUM(s.total_amount) DESC) as revenue_rank,
