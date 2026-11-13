@@ -36,28 +36,28 @@ The Entity Relationship Diagram (ERD) visually represents these relationships, i
 # 8. JOIN Implementations
 
 **1. INNER JOIN**
-```sql
+
 -- Retrieve records that have matching values in both tables
 SELECT s.sale_id, s.sale_date, p.product_name, s.quantity, s.total_amount
 FROM sales s
 INNER JOIN products p ON s.product_id = p.product_id;
 Business Interpretation: This query retrieves all sales transactions alongside the specific names of the products sold. It helps the business understand exactly which items are moving through the checkout process, excluding any products that have never been sold.
 
-2. LEFT JOIN
+** 2. LEFT JOIN
 -- Identify records in the left table that have no matching records in the right table
 SELECT c.customer_id, c.first_name, c.last_name, s.sale_id
 FROM customers c
 LEFT JOIN sales s ON c.customer_id = s.customer_id
 WHERE s.sale_id IS NULL;
 Business Interpretation: This query identifies registered customers who have not made any purchases yet. The marketing team can use this specific list to target these inactive customers with personalized first-time discount offers.
-3. RIGHT JOIN
+** 3. RIGHT JOIN
 -- Identify records in the right table that have no matching records in the left table
 SELECT s.sale_id, s.total_amount, e.first_name AS employee_name
 FROM sales s
 RIGHT JOIN employees e ON s.employee_id = e.employee_id
 WHERE s.sale_id IS NULL;
 Business Interpretation: By using a right join, we isolate employees who have not processed any sales transactions. This allows management to quickly identify staff members who might be in non-sales roles, or new hires who require additional sales system training.
-4. FULL OUTER JOIN
+** 4. FULL OUTER JOIN
 -- Display matching and unmatched records from both tables
 SELECT b.branch_name, s.sale_id, s.total_amount
 FROM branches b
@@ -70,8 +70,8 @@ FROM employees e1
 INNER JOIN employees e2 ON e1.manager_id = e2.employee_id;
 Business Interpretation: This query pairs retail employees directly with their respective managers within the same employee table. It provides a clear view of the organizational reporting structure inside the branches. Store directors can use this to ensure an optimal staff-to-manager ratio.
 
-9. Window Function Implementations
-A. Ranking Functions
+# 9. Window Function Implementations
+** A. Ranking Functions
 -- Rank products according to sales performance
 SELECT p.product_name, SUM(s.total_amount) as total_revenue,
 RANK() OVER (ORDER BY SUM(s.total_amount) DESC) as revenue_rank,
@@ -81,7 +81,7 @@ JOIN sales s ON p.product_id = s.product_id
 GROUP BY p.product_name;
 Business Interpretation: We used the RANK() and DENSE_RANK() functions to order our products based on their total generated revenue. This allows the purchasing department to definitively identify the top-performing products. Consequently, inventory managers can ensure these high-rank items are always in stock.
 
-B. Aggregate Window Functions (Demonstrating ROWS and RANGE)
+** B. Aggregate Window Functions (Demonstrating ROWS and RANGE)
 -- Calculate running sales totals using ROWS
 SELECT sale_date, branch_id, total_amount,
 SUM(total_amount) OVER (
@@ -100,7 +100,7 @@ SUM(total_amount) OVER (
 FROM sales;
 Business Interpretation: The first query calculates the cumulative running total of sales for each branch over time using the ROWS frame, helping managers track progress toward monthly financial targets. The second query uses the RANGE frame to calculate a rolling 7-day sales sum. This helps the financial team analyze short-term cash flow trends regardless of the exact number of daily transactions.
 
-C. Navigation Functions
+** C. Navigation Functions
 -- Compare current monthly sales with previous monthly sales
 SELECT DATE_TRUNC('month', sale_date) as sale_month, SUM(total_amount) as current_sales,
 LAG(SUM(total_amount), 1) OVER (ORDER BY DATE_TRUNC('month', sale_date)) as previous_month_sales,
@@ -109,7 +109,7 @@ FROM sales
 GROUP BY DATE_TRUNC('month', sale_date);
 Business Interpretation: The LAG() function compares the total revenue of the current month directly with the revenue of the previous month. This month-over-month comparison is critical for identifying seasonal retail trends. It immediately highlights any unexpected decreases in revenue that require immediate investigation.
 
-D. Distribution Functions
+** D. Distribution Functions
 -- Divide customers into four spending groups
 SELECT customer_id, SUM(total_amount) as total_spent,
 NTILE(4) OVER (ORDER BY SUM(total_amount) DESC) as spending_quartile,
@@ -118,7 +118,7 @@ FROM sales
 GROUP BY customer_id;
 Business Interpretation: Using NTILE(4), we divided our customer base into four distinct groups (quartiles) based on their total spending, while CUME_DIST() shows their relative standing. Quartile 1 represents our most valuable VIP customers, whereas Quartile 4 represents occasional buyers. This precise segmentation is utilized to deploy targeted loyalty programs and customized marketing campaigns.
 
-10. Key Analytical Findings
+# 10. Key Analytical Findings
 Based on the execution of our SQL queries, we derived the following business insights:
 
 1. Descriptive Analysis - What happened?
@@ -130,7 +130,7 @@ The mid-year sales dip, identified via the navigation functions, aligns with his
 3. Prescriptive Analysis - What should be done next?
 Management should use the weekly_rolling_sum data to forecast demand and proactively reallocate inventory for top-performing products before the mid-year dip. Furthermore, the marketing department should launch an aggressive, automated email campaign offering first-purchase discounts specifically targeting the inactive customers identified in the LEFT JOIN query.
 
-11. Instructions for Executing the SQL Scripts
+# 11. Instructions for Executing the SQL Scripts
 To successfully review the database and replicate our analysis, please execute the scripts in the following order:
 
 Database Setup:
