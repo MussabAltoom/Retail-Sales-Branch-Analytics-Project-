@@ -43,7 +43,7 @@ FROM sales s
 INNER JOIN products p ON s.product_id = p.product_id;
 Business Interpretation: This query retrieves all sales transactions alongside the specific names of the products sold. It helps the business understand exactly which items are moving through the checkout process, excluding any products that have never been sold.
 ```
-** 2. LEFT JOIN
+* 2. LEFT JOIN
 ``` sql
 -- Identify records in the left table that have no matching records in the right table
 SELECT c.customer_id, c.first_name, c.last_name, s.sale_id
@@ -52,7 +52,7 @@ LEFT JOIN sales s ON c.customer_id = s.customer_id
 WHERE s.sale_id IS NULL;
 Business Interpretation: This query identifies registered customers who have not made any purchases yet. The marketing team can use this specific list to target these inactive customers with personalized first-time discount offers.
 ```
-** 3. RIGHT JOIN
+* 3. RIGHT JOIN
 ``` sql
 -- Identify records in the right table that have no matching records in the left table
 SELECT s.sale_id, s.total_amount, e.first_name AS employee_name
@@ -61,7 +61,7 @@ RIGHT JOIN employees e ON s.employee_id = e.employee_id
 WHERE s.sale_id IS NULL;
 Business Interpretation: By using a right join, we isolate employees who have not processed any sales transactions. This allows management to quickly identify staff members who might be in non-sales roles, or new hires who require additional sales system training.
 ```
-** 4. FULL OUTER JOIN
+* 4. FULL OUTER JOIN
 ``` sql
 -- Display matching and unmatched records from both tables
 SELECT b.branch_name, s.sale_id, s.total_amount
@@ -69,7 +69,7 @@ FROM branches b
 FULL OUTER JOIN sales s ON b.branch_id = s.branch_id;
 Business Interpretation: This query returns all branches and all sales records, combining them where there is a match while keeping unmatched rows. It is essential for auditing purposes to ensure every recorded sale is correctly allocated, and it highlights any newly opened branches that lack sales data.
 ```
-5. SELF JOIN
+* 5. SELF JOIN
 ``` sql
 -- Compare records within the same table
 SELECT e1.first_name AS employee_name, e2.first_name AS manager_name
@@ -80,7 +80,7 @@ Business Interpretation: This query pairs retail employees directly with their r
 # 9. Window Function Implementations
 ```
 ```
-** A. Ranking Functions
+* A. Ranking Functions
 ``` sql
 -- Rank products according to sales performance
 SELECT p.product_name, SUM(s.total_amount) as total_revenue,
@@ -91,8 +91,8 @@ JOIN sales s ON p.product_id = s.product_id
 GROUP BY p.product_name;
 Business Interpretation: We used the RANK() and DENSE_RANK() functions to order our products based on their total generated revenue. This allows the purchasing department to definitively identify the top-performing products. Consequently, inventory managers can ensure these high-rank items are always in stock.
 ```
-** B. Aggregate Window Functions (Demonstrating ROWS and RANGE)
-```
+* B. Aggregate Window Functions (Demonstrating ROWS and RANGE)
+``` sql
 -- Calculate running sales totals using ROWS
 SELECT sale_date, branch_id, total_amount,
 SUM(total_amount) OVER (
@@ -102,8 +102,8 @@ SUM(total_amount) OVER (
 ) as branch_running_total
 FROM sales;
 ```
--- Calculate cumulative revenue within a specific date range using RANGE
-```
+* Calculate cumulative revenue within a specific date range using RANGE
+``` sql
 SELECT sale_date, total_amount,
 SUM(total_amount) OVER (
     ORDER BY sale_date 
@@ -112,8 +112,8 @@ SUM(total_amount) OVER (
 FROM sales;
 Business Interpretation: The first query calculates the cumulative running total of sales for each branch over time using the ROWS frame, helping managers track progress toward monthly financial targets. The second query uses the RANGE frame to calculate a rolling 7-day sales sum. This helps the financial team analyze short-term cash flow trends regardless of the exact number of daily transactions.
 ```
-** C. Navigation Functions
-```
+* C. Navigation Functions
+``` sql
 -- Compare current monthly sales with previous monthly sales
 SELECT DATE_TRUNC('month', sale_date) as sale_month, SUM(total_amount) as current_sales,
 LAG(SUM(total_amount), 1) OVER (ORDER BY DATE_TRUNC('month', sale_date)) as previous_month_sales,
@@ -122,8 +122,8 @@ FROM sales
 GROUP BY DATE_TRUNC('month', sale_date);
 Business Interpretation: The LAG() function compares the total revenue of the current month directly with the revenue of the previous month. This month-over-month comparison is critical for identifying seasonal retail trends. It immediately highlights any unexpected decreases in revenue that require immediate investigation.
 ```
-** D. Distribution Functions
-```
+* D. Distribution Functions
+``` sql
 -- Divide customers into four spending groups
 SELECT customer_id, SUM(total_amount) as total_spent,
 NTILE(4) OVER (ORDER BY SUM(total_amount) DESC) as spending_quartile,
