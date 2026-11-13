@@ -36,7 +36,7 @@ The Entity Relationship Diagram (ERD) visually represents these relationships, i
 # 8. JOIN Implementations
 
 **1. INNER JOIN**
-
+``` sql
 -- Retrieve records that have matching values in both tables
 SELECT s.sale_id, s.sale_date, p.product_name, s.quantity, s.total_amount
 FROM sales s
@@ -117,7 +117,7 @@ CUME_DIST() OVER (ORDER BY SUM(total_amount)) as cumulative_distribution
 FROM sales
 GROUP BY customer_id;
 Business Interpretation: Using NTILE(4), we divided our customer base into four distinct groups (quartiles) based on their total spending, while CUME_DIST() shows their relative standing. Quartile 1 represents our most valuable VIP customers, whereas Quartile 4 represents occasional buyers. This precise segmentation is utilized to deploy targeted loyalty programs and customized marketing campaigns.
-
+``` 
 # 10. Key Analytical Findings
 Based on the execution of our SQL queries, we derived the following business insights:
 
