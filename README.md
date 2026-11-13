@@ -23,7 +23,7 @@ Build a relational database for a multi-branch retail company.
 | sales | Sales transactions linked to branch, product, and customer |
 | employees | Employee details and management structure |
 
-### 7. ER Diagram
+# 7. ER Diagram
 
 The database schema is designed to track retail operations, consisting of 5 related tables: `branches`, `employees`, `customers`, `products`, and `sales`. 
 The Entity Relationship Diagram (ERD) visually represents these relationships, including all Primary Keys and Foreign Keys used to maintain referential integrity.
@@ -33,7 +33,7 @@ The Entity Relationship Diagram (ERD) visually represents these relationships, i
 
 ---
 
-### 8. JOIN Implementations
+# 8. JOIN Implementations
 
 **1. INNER JOIN**
 ```sql
