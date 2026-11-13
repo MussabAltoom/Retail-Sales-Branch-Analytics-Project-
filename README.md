@@ -13,11 +13,13 @@
 A major retail company operates multiple branches across different regions, employing staff and serving diverse customers with various product categories (Electronics, Accessories, Furniture). Management requires deep analytical insights to monitor regional performance and customer trends.
 # 4.Problem statement
 The organization struggles to track cumulative sales, compare sequential monthly performance, identify top-performing products per category, and accurately segment customer spending behavior using advanced SQL queries.
-# 5.project objectives.
+# 5.Project Objectives
 Build a relational database for a multi-branch retail company.
 - Analyze cumulative and month-over-month sales using window functions.
 - Analyze customer spending using JOINs and ranking.
-# 6.Database schema and table descriptions.
+# 6.Database schema and table descriptions
+| Table | Description |
+|  --: |  --: |
 | branches | Branch names and regions |
 | products | Products and categories |
 | customers | Customer details |
