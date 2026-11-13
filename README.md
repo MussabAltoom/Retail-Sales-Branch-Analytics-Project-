@@ -1,7 +1,7 @@
-# Retail-Sales-Branch-Analytics-Project-
+# 1.Retail-Sales-Branch-Analytics-Project-
 
-# Group Members
+# 2.Group Members
 
-# Business Background
+# 3.Business Background
 
-# Problem statement
+# 4.Problem statement
