@@ -174,6 +174,14 @@ Run scripts 06_ranking_functions.sql through 09_distribution_functions.sql to vi
 
 Ensure your SQL environment supports standard ANSI SQL window functions before execution.
 
+## 12. References
+
+1. Maniraguha, E. (2026). *SQL Database Course Lecture Notes: SQL JOINs and Advanced Window Functions*. Kigali Independent University (ULK), Department of Data Science.
+2. PostgreSQL Global Development Group. (2026). *PostgreSQL Documentation: Window Functions & Table Expressions*. Retrieved from https://www.postgresql.org/docs/current/tutorial-window.html
+3. PostgreSQL Global Development Group. (2026). *PostgreSQL Documentation: Joins Between Tables*. Retrieved from https://www.postgresql.org/docs/current/tutorial-join.html
+4. Silberschatz, A., Korth, H. F., & Sudarshan, S. (2019). *Database System Concepts* (7th ed.). McGraw-Hill Education.
+5. Beaulieu, A. (2020). *Learning SQL: Generate, Manipulate, and Retrieve Data* (3rd ed.). O'Reilly Media.
+
 ##13. Academic Integrity Statement
 I hereby solemnly declare that this database project and its accompanying technical report represent my own original, independent work. Every aspect of this submission—including the conceptual design, Entity-Relationship (ER) modeling, relational database schema, data normalization, SQL script implementation, JOIN operations, window functions, and analytical findings—has been personally developed, executed, and verified by me in strict accordance with the academic integrity and ethical standards of the university.
 I affirm that I have neither given nor received any unauthorized assistance during the preparation of this project. All external literature, technical documentation, datasets, and reference materials consulted throughout the research and development process have been fully acknowledged and appropriately cited in the References section of this report.
