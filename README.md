@@ -182,7 +182,7 @@ Ensure your SQL environment supports standard ANSI SQL window functions before e
 4. Silberschatz, A., Korth, H. F., & Sudarshan, S. (2019). *Database System Concepts* (7th ed.). McGraw-Hill Education.
 5. Beaulieu, A. (2020). *Learning SQL: Generate, Manipulate, and Retrieve Data* (3rd ed.). O'Reilly Media.
 
-##13. Academic Integrity Statement
+# 13. Academic Integrity Statement
 I hereby solemnly declare that this database project and its accompanying technical report represent my own original, independent work. Every aspect of this submission—including the conceptual design, Entity-Relationship (ER) modeling, relational database schema, data normalization, SQL script implementation, JOIN operations, window functions, and analytical findings—has been personally developed, executed, and verified by me in strict accordance with the academic integrity and ethical standards of the university.
 I affirm that I have neither given nor received any unauthorized assistance during the preparation of this project. All external literature, technical documentation, datasets, and reference materials consulted throughout the research and development process have been fully acknowledged and appropriately cited in the References section of this report.
 Furthermore, I confirm that no part of this work has been plagiarized, copied from any other student or uncredited source, or submitted previously for academic credit in this or any other course. I fully understand the consequences of academic dishonesty and take complete responsibility for the authenticity, accuracy, and integrity of the work presented herein.
